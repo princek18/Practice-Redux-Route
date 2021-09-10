@@ -1,10 +1,9 @@
 import React from 'react'
-import { useSelector } from 'react-redux'
 import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
 
 
-export default function UserName() {
-    const Data = useSelector(state => state);
+function UserName({Data}) {
     return (
         <div>
             <h1>User Name!</h1>
@@ -15,3 +14,11 @@ export default function UserName() {
         </div>
     )
 }
+
+const mapStateToProps = (state) => {
+    return {
+        Data: state
+    }
+}
+
+export default connect(mapStateToProps)(UserName)
